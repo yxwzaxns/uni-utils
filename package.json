@@ -4,7 +4,7 @@
   "description": " A unified toolkit for all languages",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/nodejs/ -t 5000"
+    "test": "./node_modules/.bin/mocha test/nodejs/ -t 5000"
   },
   "repository": {
     "type": "git",
