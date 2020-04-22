@@ -1,0 +1,4 @@
+.eslint*
+test/
+src/php/
+src/python/
