@@ -1,0 +1,28 @@
+{
+    "name": "yxwzaxns/uni-utils",
+    "description": "A unified toolkit for all languages",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aong",
+            "email": "yxwzaxns@gmail.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "vendor-dir": "src/php/vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "UniUtils\\": "src/php/"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "/src/nodejs/",
+            "/src/python/",
+            "/test/"
+        ]
+    }
+}

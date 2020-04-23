@@ -1,4 +1,10 @@
+.github
+/bin
+/build/
+/dist/
+/src/php/
+/src/python/
 .eslint*
-test/
-src/php/
-src/python/
+/test/
+setup.py
+version

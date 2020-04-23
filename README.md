@@ -7,8 +7,13 @@
 A unified toolkit for all languages
 
 # Install 
+### nodejs:
 ```
-npm i
+npm i uni-utils --save
+```
+### python:
+```
+pip3 install uni-utils
 ```
 # Usage
 ### nodejs:
@@ -21,6 +26,9 @@ utils.log("ok")
 import uni-utils
 utils.log("ok")
 ```
+# Doc
+1. [api]()
+
 # Test
 ```
 npm test
