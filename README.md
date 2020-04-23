@@ -15,16 +15,25 @@ npm i uni-utils --save
 ```
 pip3 install uni-utils
 ```
+### php:
+```
+php composer require uni-utils
+```
 # Usage
-### nodejs:
+### Nodejs:
 ```js
 const utils = require('uni-utils')
 utils.log("ok")
 ```
-### python:
+### Python:
 ```python
-import uni-utils
+import uni-utils as utils
 utils.log("ok")
+```
+### PHP:
+```php
+use UniUtils\Core as Utils
+Utils::log("ok")
 ```
 # Doc
 1. [api]()
