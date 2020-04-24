@@ -25,17 +25,15 @@ describe('#coreTest', function () {
         })
     })
     describe('#removeDuplicate()', function () {
-        const p = [0,1,2,2,3,4,4]
-        const res = [0, 1, 2, 3, 4]
+        let p = [0,1,2,2,3,4,4]
+        let res = [0, 1, 2, 3, 4]
         it(`removeDuplicate(${p}) return ${res}`, async () => {
             const ret = await core.removeDuplicate(p)
             assert.deepEqual(ret, res)
         })
-    })
-    describe('#removeDuplicate()', function () {
-        const p = [{ id: 1, name: 'a' }, { id: 2, name: 'b' }, { id: 1, name: 'a' }]
-        const res = [{ id: 1, name: 'a' }, { id: 2, name: 'b' }]
-        it(`removeDuplicate(${p}) return ${res}`, async () => {
+        p = [{ id: 1, name: 'a' }, { id: 2, name: 'b' }, { id: 1, name: 'a' }]
+        res = [{ id: 1, name: 'a' }, { id: 2, name: 'b' }]
+        it(`removeDuplicate(${JSON.stringify(p)}) return ${JSON.stringify(res)}`, async () => {
             const ret = await core.removeDuplicate(p)
             assert.deepEqual(ret, res)
         })

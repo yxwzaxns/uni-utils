@@ -14,19 +14,21 @@ const download = async (url, option={}) => {
         options.agent = new require('https-proxy-agent')(proxy)
     }
     let resp
+    
     try {
         resp = await require('node-fetch')(url, options)
     } catch (e) {
         log('文件下载失败:',e.message)
         throw new Error(e.message)
     }
+    
     if (path) {
         const pipeline = util.promisify(stream.pipeline)
         const saveFile = require('fs').createWriteStream(path)
         await pipeline(resp.body, saveFile)
     }
     if(ret){
-        return resp.text()
+        return (await resp.text()).trim()
     }
     return true
 }
