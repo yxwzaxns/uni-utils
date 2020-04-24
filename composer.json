@@ -20,9 +20,14 @@
     },
     "archive": {
         "exclude": [
-            "/src/nodejs/",
-            "/src/python/",
-            "/test/"
+            "/bin",
+            "/build",
+            "/dist",
+            "/docs",
+            "/node_modules",
+            "/src/nodejs",
+            "/src/python",
+            "/test"
         ]
     }
 }
