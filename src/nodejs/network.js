@@ -1,12 +1,13 @@
+const core = require('./core')
 const {log} = require('./core')
 const file = require('./file')
 const download = async (url, option={}) => {
     const path = option.savePath || ''
-    const ret = option.ret || true
     const options = {
         timeout: 30000,
         ...(option.http_options || {})
     }
+    
     if (process.env.http_proxy) {
         options.agent = new require('https-proxy-agent')(process.env.http_proxy)
     } else {
@@ -23,14 +24,12 @@ const download = async (url, option={}) => {
     }
     
     if (path) {
-        const pipeline = util.promisify(stream.pipeline)
+        const pipeline = require('util').promisify(require('stream').pipeline)
         const saveFile = require('fs').createWriteStream(path)
-        await pipeline(resp.body, saveFile)
+        return pipeline(resp.body, saveFile)
+    }else{
+        return resp.text()
     }
-    if(ret){
-        return (await resp.text()).trim()
-    }
-    return true
 }
 exports.download = download
 /*
@@ -43,37 +42,23 @@ exports.download = download
     }
 */
 const listDownload = async (taskList, options) => {
-    options = { timeGap: 1000, ...options }
-    const errors = []
-    const cliProgress = require('cli-progress')
-    const infoBar = new cliProgress.SingleBar({
-        fps: 100
-    }, cliProgress.Presets.shades_classic);
-    infoBar.start(taskList.length, 1)
-    for (let i in taskList) {
-        let task = taskList[i]
-        if (!await file.checkFile(task.savePath)) {
-            try {
-                await download(task.downUrl, task.savePath)
-            } catch (e) {
-                log('文件下载失败:',e.message,task.downUrl)
-                if (typeof task == 'object') {
-                    task.error = e.message
-                } else {
-                    task = task.toString() + ':' + e.message
-                }
-                errors.push(task)
-                continue
-            }
-            log(`下载完成:${i}/${taskList.length}`, task.downUrl)
-            await sleep(options.timeGap)
+    options = { timeGap: 1000,skipExist:true, ...options }
+    const ret = await core.loopTask(taskList, async (task)=>{
+        if (await file.checkFile(task.savePath) && options.skipExist) {
+            return
         } else {
-            // console.log(task.savePath, '文件存在不需要下载');
+            try {
+                await download(task.downUrl, { savePath: task.savePath})
+            } catch (e) {
+                log('文件下载失败:', e.message, task.downUrl)
+                task.error = e.message
+                return task
+            }
+            if(task.i){
+                log(`下载完成:${task.i}/${taskList.length}`, task.downUrl)
+            }
         }
-        infoBar.increment()
-        // infoBar.update()
-    }
-    infoBar.stop()
-    return errors
+    }, options)
+    return ret
 }
 exports.listDownload = listDownload

@@ -1,7 +1,7 @@
 const checkFile = async (path) => {
     let res = true
     try {
-        require('fs').promises.stat(path)
+        await require('fs').promises.stat(path)
     } catch (error) {   
         res = false
     }
