@@ -22,7 +22,7 @@ exports.saveFile = saveFile
 const getLastLine = async (p) => {
     const data = await readFile(p)
     const lines = data.split(require('os').EOL)
-    return lines[lines.length - 1] || lines[lines.length - 2] || ''
+    return lines[lines.length - 1].trim() || lines[lines.length - 2].trim() || ''
 }
 exports.getLastLine = getLastLine
 
