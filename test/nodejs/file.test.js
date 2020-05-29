@@ -1,6 +1,7 @@
 const assert = require('assert').strict
 const file = require('../../src/nodejs/file')
 const filePath = '/tmp/test.file'
+const fileContent = 'test content !'
 describe('#fileTest', function () {
     before(async ()=>{
         
@@ -13,14 +14,14 @@ describe('#fileTest', function () {
     })
     describe('#saveFile()', function () {
         it(`saveFile('${filePath}')`, async () => {
-            const ret = await file.saveFile('saveFile',filePath)
-            console.log('saveFile:',ret)
+            const ret = await file.saveFile(fileContent,filePath)
+            assert(ret)
         })
     })
     describe('#readFile()', function () {
         it(`readFile('${filePath}')`, async () => {
             const content = await file.readFile(filePath)
-            assert.equal('saveFile', content)
+            assert.equal(fileContent, content)
         })
     })
     describe('#getLastLine()', function () {

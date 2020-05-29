@@ -9,13 +9,14 @@ const checkFile = async (path) => {
 }
 exports.checkFile = checkFile
 
-const readFile = async (p, o={}) => {
-    return require('fs').promises.readFile(p, { encoding: 'utf-8', ...o })
+const readFile = async (filePath, options={}) => {
+    return require('fs').promises.readFile(filePath, { encoding: 'utf-8', ...options })
 }
 exports.readFile = readFile
 
 const saveFile = async (data, filePath) => {
-    return require('fs').promises.writeFile(filePath, data)
+    await require('fs').promises.writeFile(filePath, data)
+    return true
 }
 exports.saveFile = saveFile
 
@@ -95,3 +96,7 @@ const saveJson = async (data, file) => {
     return saveFile(JSON.stringify(data, null, 4), file)
 }
 exports.saveJson = saveJson
+
+// export const saveJson = async (data, file) => {
+//     return saveFile(JSON.stringify(data, null, 4), file)
+// }
