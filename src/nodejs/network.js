@@ -17,7 +17,7 @@ const download = async (url, option={}) => {
     let resp
     
     try {
-        resp = await require('node-fetch')(url, options)
+        resp = await require('node-fetch')(new URL(url), options)
     } catch (e) {
         log('文件下载失败:',e.message)
         throw new Error(e.message)

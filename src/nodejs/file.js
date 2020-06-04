@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 const checkFile = async (path) => {
     let res = true
     try {
