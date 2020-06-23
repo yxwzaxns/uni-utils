@@ -8,3 +8,7 @@
 /test/
 setup.py
 version
+_config.yml
+composer.json
+docs/
+CNAME
