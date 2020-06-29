@@ -13,6 +13,18 @@ const removeDuplicate = (arr, key = 'id') => {
 }
 exports.removeDuplicate = removeDuplicate
 
+const arrayRemove = (arr,...args) =>  {
+    let what, a = args, L = a.length, ax
+    while (L >= 1 && arr.length) {
+        what = a[--L]
+        while ((ax = arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr
+}
+exports.arrayRemove = arrayRemove
+
 const range = (a, b) => {
     const g = function* () {
         while (a <= b) {

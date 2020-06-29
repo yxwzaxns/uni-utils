@@ -38,5 +38,13 @@ describe('#coreTest', function () {
             assert.deepEqual(ret, res)
         })
     })
+    describe('#arrayRemove()', function () {
+        let p = [0, 1, 2, 2, 3, 4, 4, 5]
+        let res = [0, 1, 3, 5]
+        it(`arrayRemove(${p}) return ${res}`, async () => {
+            const ret = await core.arrayRemove(p,2,4)
+            assert.deepEqual(ret, res)
+        })
+    })
 })
 
