@@ -4,25 +4,24 @@ const file = require('./file')
 const download = async (url, option={}) => {
     const path = option.savePath || ''
     const options = {
-        timeout: 30000,
-        ...(option.http_options || {})
+        timeout: 30000
     }
-    
     if (process.env.http_proxy) {
+        console.log('use env.http_proxy')
         options.agent = new require('https-proxy-agent')(process.env.http_proxy)
-    } else {
-        const proxy = "http://127.0.0.1:1087"
-        options.agent = new require('https-proxy-agent')(proxy)
+    }
+    if(option.hasOwnProperty('proxy')){
+        options.agent = new require('https-proxy-agent')(option.proxy)
     }
     let resp
-    
+
     try {
         resp = await require('node-fetch')(new URL(url), options)
     } catch (e) {
         log('文件下载失败:',e.message)
         throw new Error(e.message)
     }
-    
+
     if (path) {
         const pipeline = require('util').promisify(require('stream').pipeline)
         const saveFile = require('fs').createWriteStream(path)

@@ -6,7 +6,7 @@ with codecs.open('README.md', encoding='utf-8') as f:
 
 setup(
     name="uni-utils",
-    version="1.0.0",
+    version="1.0.2",
     license='https://github.com/yxwzaxns/uni-utils/blob/master/LICENSE',
     description="A unified toolkit for all languages",
     author='aong',
