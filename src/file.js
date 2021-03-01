@@ -4,7 +4,7 @@ const checkFile = async (path) => {
     let res = true
     try {
         await require('fs').promises.stat(path)
-    } catch (error) {   
+    } catch (error) {
         res = false
     }
     return res
@@ -33,6 +33,19 @@ const readJson = async (p) => {
     return JSON.parse(await readFile(p))
 }
 exports.readJson = readJson
+
+exports.readCsv = async (dp,options={headers: false}) => {
+    const data = []
+    return new Promise((resolve,reject)=>{
+        fs.createReadStream(dp)
+        .pipe(require('fast-csv').parse(options))
+        .on('error', error => reject(error))
+        .on('data', row => data.push(row))
+        .on('end', rowCount => {
+            resolve(data)
+        })
+    })
+}
 
 const rm = (p) => {
     return new Promise((resolve, reject) => {

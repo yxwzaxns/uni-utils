@@ -1,18 +1,14 @@
 const assert = require('assert').strict
-const core = require('../../src/nodejs/core')
+const core = require('../src/core')
 
 describe('#coreTest', function () {
     describe('#loopTask()', function () {
         it('loopTask([1,2,3]) return [2, 3, 4]', async () => {
-            const ret = await core.loopTask([1, 2, 3], (e) => {
-                return e + 1
-            })
+            const ret = await core.loopTask([1, 2, 3], e => e + 1)
             assert.deepEqual(ret, [2, 3, 4])
         })
         it('loopTask([1,2,3]) return [2, 3, 4] immediately', async () => {
-            const ret = await core.loopTask([1, 2, 3], (e) => {
-                return e + 1
-            }, { timeGap: 0, execLength: 2 })
+            const ret = await core.loopTask([1, 2, 3], e => e + 1, { timeGap: 0, execLength: 2 })
             assert.deepEqual(ret, [2, 3, 4])
         })
     })
@@ -47,4 +43,3 @@ describe('#coreTest', function () {
         })
     })
 })
-

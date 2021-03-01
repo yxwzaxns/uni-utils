@@ -4,7 +4,7 @@
   "description": " A unified toolkit for all languages",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test/nodejs/ -t 10000",
+    "test": "./node_modules/.bin/mocha test/ -t 10000",
     "build": ""
   },
   "repository": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/yxwzaxns/uni-utils#readme",
   "dependencies": {
     "cli-progress": "^3.8.0",
+    "fast-csv": "^4.3.6",
     "https-proxy-agent": "^5.0.0",
     "json2csv": "^5.0.0",
     "node-fetch": "^2.6.0",

@@ -1,8 +1,8 @@
 const assert = require('assert').strict
 const path = require('path')
-const network = require('../../src/nodejs/network')
-const file = require('../../src/nodejs/file')
-const dir = require('../../src/nodejs/dir')
+const network = require('../src/network')
+const file = require('../src/file')
+const dir = require('../src/dir')
 
 describe('#networkTest', function () {
     describe('#download()', function () {
@@ -37,4 +37,3 @@ describe('#networkTest', function () {
         });
     })
 })
-
