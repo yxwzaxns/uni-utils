@@ -1,2 +1,2 @@
-const utils = require('./src/nodejs/index')
+const utils = require('./src/index')
 module.exports = utils
