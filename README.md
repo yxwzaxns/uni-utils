@@ -20,7 +20,7 @@ utils.log("ok")
 ```
 
 # Doc
-1. [api](https://uni-utils)
+1. [api](https://uni-utils.com)
 
 # Test
 ```

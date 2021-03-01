@@ -1,7 +1,7 @@
 {
   "name": "uni-utils",
-  "version": "1.0.5",
-  "description": " A unified toolkit for all languages",
+  "version": "1.0.6",
+  "description": " A unified toolkit for Nodejs",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/ -t 10000",
