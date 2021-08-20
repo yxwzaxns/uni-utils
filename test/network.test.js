@@ -23,7 +23,7 @@ describe('#networkTest', function () {
         });
     })
     describe('#listDownload()', function () {
-        let urls = ['https://baidu.com', 'https://google.com']
+        let urls = ['https://www.youtube.com', 'https://google.com']
         let dirPath = '/tmp/listDownload'
         before(async ()=>{
             await dir.createDir(dirPath)

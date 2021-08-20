@@ -7,20 +7,13 @@ const download = async (url, option={}) => {
         timeout: 30000
     }
     if (process.env.http_proxy) {
-        console.log('use env.http_proxy')
         options.agent = new require('https-proxy-agent')(process.env.http_proxy)
     }
     if(option.hasOwnProperty('proxy')){
         options.agent = new require('https-proxy-agent')(option.proxy)
     }
-    let resp
 
-    try {
-        resp = await require('node-fetch')(new URL(url), options)
-    } catch (e) {
-        log('文件下载失败:',e.message)
-        throw new Error(e.message)
-    }
+    const resp = await require('node-fetch')(new URL(url), options)
 
     if (path) {
         const pipeline = require('util').promisify(require('stream').pipeline)
@@ -42,22 +35,19 @@ exports.download = download
 */
 const listDownload = async (taskList, options) => {
     options = { timeGap: 1000,skipExist:true, ...options }
-    const ret = await core.loopTask(taskList, async (task)=>{
-        if (await file.checkFile(task.savePath) && options.skipExist) {
-            return
-        } else {
-            try {
-                await download(task.downUrl, { savePath: task.savePath})
-            } catch (e) {
-                log('文件下载失败:', e.message, task.downUrl)
-                task.error = e.message
-                return task
-            }
-            if(task.i){
-                log(`下载完成:${task.i}/${taskList.length}`, task.downUrl)
-            }
+    return core.loopTask(taskList, async (task)=>{
+        if (options.skipExist && await file.checkFile(task.savePath)) return
+
+        try {
+            await download(task.downUrl, { savePath: task.savePath})
+        } catch (e) {
+            log('文件下载失败:', e.message, task.downUrl)
+            task.error = e.message
+            return task
+        }
+        if(task.i){
+            log(`下载完成:${task.i}/${taskList.length}`, task.downUrl)
         }
     }, options)
-    return ret
 }
 exports.listDownload = listDownload

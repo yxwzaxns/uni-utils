@@ -10,11 +10,28 @@ const checkFile = async (path) => {
     return res
 }
 exports.checkFile = checkFile
+exports.fileExist = checkFile
+
+const checkFileSync = path => {
+    let res = true
+    try {
+        require('fs').statSync(path)
+    } catch (error) {
+        res = false
+    }
+    return res
+}
+exports.checkFileSync = checkFileSync
 
 const readFile = async (filePath, options={}) => {
     return require('fs').promises.readFile(filePath, { encoding: 'utf-8', ...options })
 }
 exports.readFile = readFile
+
+const readFileSync = (filePath, options={}) => {
+    return require('fs').readFileSync(filePath, { encoding: 'utf-8', ...options })
+}
+exports.readFileSync = readFileSync
 
 const saveFile = async (data, filePath) => {
     await require('fs').promises.writeFile(filePath, data)
@@ -33,6 +50,11 @@ const readJson = async (p) => {
     return JSON.parse(await readFile(p))
 }
 exports.readJson = readJson
+
+const readJsonSync = p => {
+    return JSON.parse(readFileSync(p))
+}
+exports.readJsonSync = readJsonSync
 
 exports.readCsv = async (dp,options={headers: false}) => {
     const data = []

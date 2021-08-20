@@ -12,6 +12,12 @@ describe('#fileTest', function () {
             assert(!ret)
         })
     })
+    describe('#checkFileSync()', function () {
+        it(`checkFile('${filePath}')`, () => {
+            const ret = file.checkFileSync(filePath)
+            assert(!ret)
+        })
+    })
     describe('#saveFile()', function () {
         it(`saveFile('${filePath}')`, async () => {
             const ret = await file.saveFile(fileContent,filePath)
@@ -21,6 +27,12 @@ describe('#fileTest', function () {
     describe('#readFile()', function () {
         it(`readFile('${filePath}')`, async () => {
             const content = await file.readFile(filePath)
+            assert.equal(fileContent, content)
+        })
+    })
+    describe('#readFileSync()', function () {
+        it(`readFile('${filePath}')`, () => {
+            const content = file.readFileSync(filePath)
             assert.equal(fileContent, content)
         })
     })
