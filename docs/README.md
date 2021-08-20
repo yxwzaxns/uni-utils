@@ -6,7 +6,7 @@
 A unified toolkit for Nodejs
 
 # Install
-### nodejs:
+
 ```
 npm i uni-utils --save
 
@@ -16,13 +16,14 @@ npm i uni-utils --save
 
 ```js
 const utils = require('uni-utils')
-utils.log("ok")
+
 ```
 
 # Doc
-1. [api](https://uni-utils.com)
+1. [api](https://uni-utils.com/api)
 
 # Test
+
 ```
 npm test
 ```

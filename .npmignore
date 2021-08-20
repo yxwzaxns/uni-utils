@@ -2,13 +2,8 @@
 /bin
 /build/
 /dist/
-/src/php/
-/src/python/
 .eslint*
 /test/
 setup.py
-version
-_config.yml
 composer.json
 docs/
-CNAME
