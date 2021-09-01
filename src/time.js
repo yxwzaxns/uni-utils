@@ -17,3 +17,12 @@ const getTodayDate = () => {
     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
 }
 exports.getTodayDate = getTodayDate
+
+const countdown = async (n) => {
+    for (let i = n; i > 0 ; i--) {
+        await sleep(1000)
+        console.log(i)
+    }
+}
+
+exports.countdown = countdown
