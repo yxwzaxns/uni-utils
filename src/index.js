@@ -4,6 +4,7 @@ const dir = require('./dir')
 const network = require('./network')
 const time = require('./time')
 const process = require('./process')
+const hash = require('./hash')
 
 module.exports = {
     ...core,
@@ -11,5 +12,6 @@ module.exports = {
     ...dir,
     ...network,
     ...time,
-    ...process
+    ...process,
+    hash: hash
 }

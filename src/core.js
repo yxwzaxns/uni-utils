@@ -56,9 +56,33 @@ const loopTask = async (data, func, options) => {
             results.push(res)
         }
         await sleep(options.timeGap)
-        
+
     }
     infoBar.stop()
     return results
 }
 exports.loopTask = loopTask
+
+const randomStr = (len,type=1) => {
+    let result = ''
+    const commonCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    const UpCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    const Numbers = '0123456789'
+    let characters = commonCharacters
+    if(type==2){
+      characters = UpCharacters
+    }else if(type==3){
+      characters = Numbers
+    }
+    const charactersLength = characters.length
+    for (let i = 0; i < len; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength))
+    }
+    return result
+}
+exports.randomStr = randomStr
+
+const randomNum = (len = 1) => {
+    return len === 1 ? Math.floor(Math.random()*10) : Math.floor(Math.random() * 9*(10**(len-1)) + 10 ** (len-1))
+}
+exports.randomNum = randomNum

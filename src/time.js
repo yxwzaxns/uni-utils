@@ -18,10 +18,10 @@ const getTodayDate = () => {
 }
 exports.getTodayDate = getTodayDate
 
-const countdown = async (n) => {
+const countdown = async (n, cb=console.log) => {
     for (let i = n; i > 0 ; i--) {
         await sleep(1000)
-        console.log(i)
+        cb(i)
     }
 }
 

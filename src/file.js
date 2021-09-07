@@ -39,6 +39,13 @@ const saveFile = async (data, filePath) => {
 }
 exports.saveFile = saveFile
 
+const saveFileSync = (data, filePath) => {
+    return require('fs').writeFile(filePath, data, (err)=>{
+        if (err) throw err
+    })
+}
+exports.saveFileSync = saveFileSync
+
 const getLastLine = async (p) => {
     const data = await readFile(p)
     const lines = data.split(require('os').EOL)

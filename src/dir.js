@@ -32,3 +32,15 @@ const readDir = async (p) => {
     return require('fs').promises.readdir(p)
 }
 exports.readDir = readDir
+
+const copyDir = async (s, d) => {
+    return new Promise((resolve,reject)=>{
+        require('child_process').execFile('cp',["-R", s, d], (error, stdout, stderr) => {
+          if (error) {
+            reject(error)
+          }
+          resolve(stdout)
+        })
+    })
+}
+exports.copyDir = copyDir
