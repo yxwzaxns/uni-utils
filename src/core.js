@@ -45,11 +45,7 @@ const loopTask = async (data, func, options) => {
     infoBar.start(data.length, 1)
     for (let i = 0; i < data.length; i += +options.execLength) {
         const subData = data.slice(i, i + +options.execLength)
-        const taskMap = subData.map(e => {
-            return (async () => {
-                return func(e)
-            })()
-        })
+        const taskMap = subData.map(e => func(e))
         for (const j in taskMap) {
             const res = await taskMap[j]
             infoBar.update(i + +j + 1)
