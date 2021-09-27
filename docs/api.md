@@ -6,13 +6,18 @@ description: ""
 # API Documents
 
 ## Core
+-
 ```
-removeDuplicate([1,2,3,2]) // [1,2,3]
+removeDuplicate([Object])
+# [1,2,3,2] -> [1,2,3]
+```
+-
+```
+async loopTask([Object]: list, func: callback, Object:opts) -> []
+# opts = {execLength:10,timeGap:1000}
+# callback = async (e)=>{} -> Object
 ```
 
-```
-loopTask([1,2,3],console.log) // 1 2 3
-```
 ## Dir
 
 ## File
@@ -22,3 +27,18 @@ loopTask([1,2,3],console.log) // 1 2 3
 ## Process
 
 ## Time
+-
+```
+async countdown(Number: n)
+```
+-
+```
+async sleep(Number :n)
+# The amount of time, in milliseconds, to sleep.
+```
+
+## Path
+-
+```
+homedir()
+```
