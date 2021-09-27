@@ -34,7 +34,8 @@ const readFileSync = (filePath, options={}) => {
 exports.readFileSync = readFileSync
 
 const saveFile = async (data, filePath, options = { encoding: 'utf8' }) => {
-    return require('fs').promises.writeFile(filePath, data, options)
+    await require('fs').promises.writeFile(filePath, data, options)
+    return true
 }
 exports.saveFile = saveFile
 
