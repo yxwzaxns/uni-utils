@@ -2,7 +2,7 @@
   "name": "uni-utils",
   "version": "1.0.10",
   "description": " A unified toolkit for Nodejs",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/ -t 10000",
     "build": "./node_modules/.bin/babel --verbose -s inline src/ -d dist -D"

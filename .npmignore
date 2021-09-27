@@ -1,6 +1,7 @@
 .github
 /bin
 /src
+babel.config.json
 .eslint*
 /test/
 docs/
