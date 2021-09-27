@@ -1,6 +1,7 @@
 const core = require('./core')
 const {log} = require('./core')
 const file = require('./file')
+
 const download = async (url, option={}) => {
     const path = option.savePath || ''
     const options = {
@@ -13,7 +14,8 @@ const download = async (url, option={}) => {
         options.agent = new require('https-proxy-agent')(option.proxy)
     }
 
-    const resp = await require('node-fetch')(new URL(url), options)
+    const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
+    const resp = await fetch(new URL(url), options)
 
     if (path) {
         const pipeline = require('util').promisify(require('stream').pipeline)
