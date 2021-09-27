@@ -9,6 +9,7 @@ A unified toolkit for Nodejs
 
 ```
 npm i uni-utils --save
+# yarn add uni-utils
 
 ```
 
