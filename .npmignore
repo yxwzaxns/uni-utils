@@ -1,9 +1,6 @@
 .github
 /bin
-/build/
-/dist/
+/src
 .eslint*
 /test/
-setup.py
-composer.json
 docs/
