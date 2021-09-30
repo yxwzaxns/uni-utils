@@ -82,3 +82,8 @@ const randomNum = (len = 1) => {
     return len === 1 ? Math.floor(Math.random()*10) : Math.floor(Math.random() * 9*(10**(len-1)) + 10 ** (len-1))
 }
 exports.randomNum = randomNum
+
+const uuid = (v="v1", ...args) => {
+    return require('uuid')[v](...args)
+}
+exports.uuid = uuid
