@@ -16,21 +16,16 @@ const createProcess = (file, args, env = {}) => {
     return new Promise((resolve,reject)=>{
         const w = require('child_process').fork(file, args, {
             detached: true,
-            stdio: ["ignore","ignore","pipe","ipc"],
+            stdio: ["ignore","ignore","ignore","ipc"],
             env:{
                 ...process.env,
                 ...env
             }
         })
-        let code = 0,
-            msg = ""
-        w.stderr.on('data',data=>{
-            msg = `${data}`
-        })
         w.on('exit', (code) => {
-          reject({code,msg})
+          reject(code)
         })
-        sleep(3000)
+        sleep(1000)
         .then(()=>{
             w.unref()
             w.channel?.unref?.()
