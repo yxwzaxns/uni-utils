@@ -14,7 +14,7 @@ exports.getTimeStamp = getTimeStamp
 
 const getTodayDate = () => {
     const date = new Date()
-    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+    return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2,'0') + '-' + date.getDate().toString().padStart(2,'0')
 }
 exports.getTodayDate = getTodayDate
 
