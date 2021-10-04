@@ -27,14 +27,24 @@ async loopTask([Object]: list, func: callback, Object:opts) -> []
 ## Process
 
 ## Time
--
+- do something for time interval, similar to setInterval()
 ```
-async countdown(Number: n)
+async countdown(Number: n, CallBack: func=console.log)
 ```
--
+- sleep function
 ```
 async sleep(Number :n)
 # The amount of time, in milliseconds, to sleep.
+```
+
+- get timestamp in seconds
+```
+getTimeStamp()
+```
+
+- get today Date format : YY-MM-DD
+```
+getTodayDate()
 ```
 
 ## Path
