@@ -11,6 +11,11 @@ description: ""
 removeDuplicate([Object])
 # [1,2,3,2] -> [1,2,3]
 ```
+- remove elem(s) on a array 
+```
+arrayRemove(Array,...elem)
+```
+
 -
 ```
 async loopTask([Object]: list, func: callback, Object:opts) -> []
