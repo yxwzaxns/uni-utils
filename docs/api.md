@@ -6,17 +6,18 @@ description: ""
 # API Documents
 
 ## Core
--
+- Remove duplicate elements in the array
 ```
 removeDuplicate([Object])
 # [1,2,3,2] -> [1,2,3]
 ```
+
 - remove elem(s) on a array 
 ```
 arrayRemove(Array,...elem)
 ```
 
--
+- 
 ```
 async loopTask([Object]: list, func: callback, Object:opts) -> []
 # opts = {execLength:10,timeGap:1000}
