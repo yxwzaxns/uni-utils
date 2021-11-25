@@ -10,11 +10,14 @@ describe('#ProcessTest', function () {
             const testFile = path.join(__dirname,'node-script.js')
                 const p = await process.createProcess(testFile,[])
                 pid = p.pid
-                assert.ok(pid)            
+                assert.ok(pid)
         })
         after(() =>{
-            if(pid>0)
-                require('process').kill(pid)
+            if(pid>0){
+                setTimeout(()=>{
+                    require('process').kill(pid)
+                },5000)
+            }
         });
     })
 })
