@@ -1,6 +1,6 @@
 {
   "name": "uni-utils",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": " A unified toolkit for Nodejs",
   "main": "./dist/index.js",
   "scripts": {
