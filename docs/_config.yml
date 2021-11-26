@@ -1,8 +1,8 @@
-theme: jekyll-theme-cayman
-remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+
+remote_theme: yxwzaxns/just-the-docs
 
 repository: yxwzaxns/uni-utils
 readme_index:

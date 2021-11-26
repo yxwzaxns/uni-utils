@@ -5,3 +5,5 @@ babel.config.json
 .eslint*
 /test/
 docs/
+.mocharc.json
+dev.js
