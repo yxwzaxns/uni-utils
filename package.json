@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha test/*.test.js",
     "build": "./node_modules/.bin/babel --verbose -s inline src/ -d dist -D",
-    "publish": "npm version patch;git push --follow-tags"
+    "tag": "npm version patch;git push --follow-tags"
   },
   "repository": {
     "type": "git",
