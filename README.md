@@ -21,7 +21,7 @@ const utils = require('uni-utils')
 ```
 
 ## Docs
-- [API](https://uni-utils.com/api)
+- [API](https://uni-utils.com/)
 
 ## Test
 
