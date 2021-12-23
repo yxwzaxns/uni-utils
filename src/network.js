@@ -14,15 +14,16 @@ const download = async (url, option={}) => {
         options.agent = new require('https-proxy-agent')(option.proxy)
     }
 
+    const decoding = new TextDecoder(option.decoding || 'utf-8')
+
     const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
     const resp = await fetch(new URL(url), options)
-
     if (path) {
         const pipeline = require('util').promisify(require('stream').pipeline)
         const saveFile = require('fs').createWriteStream(path)
         return pipeline(resp.body, saveFile)
     }else{
-        return resp.text()
+        return resp.arrayBuffer().then(e=>decoding.decode(e))
     }
 }
 exports.download = download
