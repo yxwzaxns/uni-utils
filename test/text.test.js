@@ -15,4 +15,12 @@ describe('#textTest', function () {
         after(async () =>{
         });
     })
+    describe('#atob and btoa()', function () {
+        const htmlString = '<h2 class="title">Hello world</h2>'
+        it(`atob === btoa`, () => {
+            const base64String = text.atob(htmlString)
+            const originString = text.btoa(base64String)
+            assert.equal(originString, htmlString)
+        })
+    })
 })
