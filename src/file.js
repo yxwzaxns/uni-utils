@@ -140,7 +140,3 @@ const saveJson = async (data, file) => {
     return saveFile(JSON.stringify(data, null, 4), file)
 }
 exports.saveJson = saveJson
-
-// export const saveJson = async (data, file) => {
-//     return saveFile(JSON.stringify(data, null, 4), file)
-// }
