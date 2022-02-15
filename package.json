@@ -1,6 +1,6 @@
 {
   "name": "uni-utils",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": " A unified toolkit for Nodejs",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
