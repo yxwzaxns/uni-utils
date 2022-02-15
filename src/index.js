@@ -9,6 +9,7 @@ const path = require('./path')
 const text = require('./text')
 
 module.exports = {
+    version: require(require('path').join(__dirname,'../package.json')).version,
     ...core,
     ...file,
     ...dir,
