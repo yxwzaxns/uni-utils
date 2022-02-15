@@ -3,6 +3,7 @@
   "version": "1.0.18",
   "description": " A unified toolkit for Nodejs",
   "main": "./dist/index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/*.test.js",
     "build": "./node_modules/.bin/babel --verbose -s inline src/ -d dist -D",
