@@ -23,4 +23,12 @@ describe('#textTest', function () {
             assert.equal(originString, htmlString)
         })
     })
+    describe('#string2hex and hex2string()', function () {
+        const testString = '你好，世界'
+        it(`string2hex === hex2string`, () => {
+            const hexString = text.string2hex(testString)
+            const originString = text.hex2string(hexString)
+            assert.equal(testString, originString)
+        })
+    })
 })
