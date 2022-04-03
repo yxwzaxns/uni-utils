@@ -14,7 +14,7 @@ declare type HashType = 'md5' | 'sha1' | 'sha256' | 'sha512'
 
 declare type DownloadOptions = {
     savePath?: string
-    decoding: string
+    decoding?: string
     proxy?: any
     [key:string]: any
 }
