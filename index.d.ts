@@ -1,7 +1,7 @@
-declare type TaskOptions = { 
+declare type TaskOptions = {
     execLength?: number
     timeGap?: number
-    [key:string]: any
+    [key: string]: any
 }
 
 declare type ReadCsvOptions = {
@@ -16,7 +16,7 @@ declare type DownloadOptions = {
     savePath?: string
     decoding?: string
     proxy?: any
-    [key:string]: any
+    [key: string]: any
 }
 
 declare type ListDownloadOptions = TaskOptions & {
@@ -24,7 +24,7 @@ declare type ListDownloadOptions = TaskOptions & {
 }
 
 declare namespace Utils {
-    const version:string
+    const version: string
 
     // core
     function removeDuplicate(arr: any[], key: string): any[]
@@ -33,16 +33,16 @@ declare namespace Utils {
 
     function range(start: number, end: number): number[]
 
-    function loopTask(tasks: any[], taskResolve: (data:any)=>Promise<any>, options?: TaskOptions): Promise<any>
+    function loopTask(tasks: any[], taskResolve: (data: any) => Promise<any>, options?: TaskOptions): Promise<any>
 
-    function randomStr(len: number, type: 1|2|3): string
+    function randomStr(len: number, type: 1 | 2 | 3): string
 
     function randomNum(len: number): number
-    
-    function uuid(ver: string, ...args: any[]): string 
+
+    function uuid(ver: string, ...args: any[]): string
 
     // dir
-    function createDir(dirPath: string|string[]): Promise<void>
+    function createDir(dirPath: string | string[]): Promise<void>
 
     function readDir(dirPath: string): Promise<string[]>
 
@@ -74,23 +74,23 @@ declare namespace Utils {
     function rm(file: string): Promise<void>
 
     function exportFile(data: string, path: string, format?: ExportFileFormat): Promise<void>
-    
+
     function copyFile(srcFile: string, distFile: string): Promise<void>
 
     function moveFile(srcFile: string, distFile: string): Promise<void>
-    
-    function saveJson(data: string, path: string): Promise<void>
-    
+
+    function saveJson(jsonObj: object, filepath: string): Promise<void>
+
     // hash
     namespace hash {
         function getStringHash(string: string, hashType: HashType): string
-        
+
         function getFileHash(filePath: string, hashType: HashType): Promise<string>
-        
+
         function getFileMd5(filePath: string): ReturnType<typeof getFileHash>
 
         function getFileSha256(filePath: string): ReturnType<typeof getFileHash>
-        
+
         function sha1(string: string): ReturnType<typeof getStringHash>
 
         function sha256(string: string): ReturnType<typeof getStringHash>
@@ -103,15 +103,15 @@ declare namespace Utils {
     function download(url: string, options: DownloadOptions): Promise<any>
 
     function listDownload(url: string, options: ListDownloadOptions): Promise<any>
-    
+
     // path
     function homedir(): string
 
     // process
     function restartProcess(): void
-    
+
     function createProcess(scriptPath: string, options: string[]): Promise<any>
-    
+
     // text
     function parseHtml(htmlText: string): any
 
@@ -126,11 +126,13 @@ declare namespace Utils {
     // time
     function sleep(microSeconds: number): Promise<void>
 
+    function getTime(time: any, format: string): string
+
     function getTimeStamp(): number
 
     function getTodayDate(): string
 
-    function countdown(seconds: number, revoke: ()=>void): Promise<void>
+    function countdown(seconds: number, revoke: () => void): Promise<void>
 
 }
 
