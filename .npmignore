@@ -7,3 +7,4 @@ babel.config.json
 docs/
 .mocharc.json
 dev.js
+release-doc.md

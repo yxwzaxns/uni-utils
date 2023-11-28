@@ -136,7 +136,7 @@ const moveFile = (oldPath, newPath) => {
 }
 exports.moveFile = moveFile
 
-const saveJson = async (data, file) => {
-    return saveFile(JSON.stringify(data, null, 4), file)
+const saveJson = async (jsonObj, filepath) => {
+    return saveFile(JSON.stringify(jsonObj, null, 4), filepath)
 }
 exports.saveJson = saveJson

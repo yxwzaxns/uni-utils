@@ -87,3 +87,13 @@ const uuid = (v="v1", ...args) => {
     return require('uuid')[v](...args)
 }
 exports.uuid = uuid
+
+const nanoid = (length) => {
+    return require('nanoid').nanoid(length)
+}
+exports.nanoid = nanoid
+
+const urlNanoid = (length) => {
+    return require('nanoid').customAlphabet('useandom26T198340PX75pxJACKVERYMINDBUSHWOLFGQZbfghjklqvwyzrict', 21)(length)
+}
+exports.urlNanoid = urlNanoid
