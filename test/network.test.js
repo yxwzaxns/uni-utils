@@ -1,5 +1,6 @@
 const assert = require('assert').strict
 const path = require('path')
+const os = require('os')
 const network = require('../src/network')
 const file = require('../src/file')
 const dir = require('../src/dir')
@@ -7,7 +8,7 @@ const dir = require('../src/dir')
 describe('#networkTest', function () {
     describe('#download()', function () {
         let url = 'https://raw.githubusercontent.com/yxwzaxns/uni-utils/master/test/test.download'
-        let savePath = '/tmp/test.download'
+        let savePath = path.join(os.tmpdir(), '.uni-utils.test.download')
         const downloadText = 'download test\n'
         it(`download('${url}')`, async () => {
             const ret = await network.download(url)
@@ -24,7 +25,7 @@ describe('#networkTest', function () {
     })
     describe('#listDownload()', function () {
         let urls = ['https://www.youtube.com', 'https://google.com']
-        let dirPath = '/tmp/listDownload'
+        let dirPath = path.join(os.tmpdir(), '.uni-utils.listDownload')
         before(async ()=>{
             await dir.createDir(dirPath)
         })

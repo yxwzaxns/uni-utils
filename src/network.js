@@ -10,7 +10,7 @@ const download = async (url, option={}) => {
     if (process.env.http_proxy) {
         options.agent = new require('https-proxy-agent')(process.env.http_proxy)
     }
-    if(option.hasOwnProperty('proxy')){
+    if(Object.prototype.hasOwnProperty.call(option, 'proxy')){
         options.agent = new require('https-proxy-agent')(option.proxy)
     }
 
