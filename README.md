@@ -1,14 +1,14 @@
 # uni-utils
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/yxwzaxns/uni-utils/blob/master/LICENSE)
+[![NPM](https://img.shields.io/npm/l/uni-utils)](https://github.com/yxwzaxns/uni-utils/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/uni-utils.svg)](https://badge.fury.io/js/uni-utils)
 
 A unified toolkit for Nodejs
 
 ## Install
 
-```
-npm i uni-utils --save
+```bash
+npm i uni-utils
 # yarn add uni-utils
 
 ```
@@ -25,6 +25,6 @@ const utils = require('uni-utils')
 
 ## Test
 
-```
+```bash
 npm test
 ```
