@@ -35,7 +35,7 @@ declare namespace Utils {
 
     function loopTask(tasks: any[], taskResolve: (data: any) => Promise<any>, options?: TaskOptions): Promise<any>
 
-    function randomStr(len: number, type: 1 | 2 | 3): string
+    function randomStr(len: number, type?: 1 | 2 | 3): string
 
     function randomNum(len: number): number
 
@@ -126,7 +126,7 @@ declare namespace Utils {
     // time
     function sleep(microSeconds: number): Promise<void>
 
-    function getTime(time: any, format: string): string
+    function getTime(time: any, format?: string): string
 
     function getTimeStamp(): number
 
