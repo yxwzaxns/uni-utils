@@ -1,7 +1,14 @@
 {
-    "presets": [["@babel/preset-env",{
-        "exclude": ["proposal-dynamic-import"]
-        }]],
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "exclude": [
+                    "proposal-dynamic-import"
+                ]
+            }
+        ]
+    ],
     "assumptions": {
         "setPublicClassFields": true
     },
