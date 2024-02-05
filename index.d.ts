@@ -41,6 +41,10 @@ declare namespace Utils {
 
     function uuid(ver: string, ...args: any[]): string
 
+    function nanoid(len:number):string
+
+    function urlNanoid(len:number):string
+
     // dir
     function createDir(dirPath: string | string[]): Promise<void>
 
